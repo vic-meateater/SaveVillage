@@ -1,7 +1,17 @@
-namespace SaveVillage.Game.GameModel
+using R3;
+
+namespace SaveVillage
 {
-    public class GameViewModel
+    public sealed class GameViewModel: IGameViewModel
     {
+        public ReadOnlyReactiveProperty<float> WorkersCountDown { get; }
+    
         
+        private readonly ReactiveProperty<float> _workersCountDown;
+        public GameViewModel(GameConfig gameConfig)
+        {
+            WorkersCountDown = new ReactiveProperty<float>(gameConfig.WorkersCountDown);
+        }
+
     }
 }

@@ -1,7 +1,12 @@
-namespace SaveVillage.Game.GameModel
+using Zenject;
+
+namespace SaveVillage
 {
-    public class GameModelFactory
+    public class GameModelFactory : IFactory
     {
-        
+        public GameViewModel Create(GameConfig gameConfig)
+        {
+            return new GameViewModel(gameConfig);
+        }
     }
 }
