@@ -8,6 +8,7 @@ namespace SaveVillage.Helpers
         {
             GameCycleInstaller.Install(Container);
             GameModelInstaller.Install(Container);
+            CycleTimerInstaller.Install(Container);
         }
     }
 }

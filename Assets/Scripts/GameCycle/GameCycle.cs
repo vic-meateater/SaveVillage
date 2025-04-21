@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SaveVillage
 {
@@ -9,6 +10,13 @@ namespace SaveVillage
         private List<IGameListener> _gameListeners;
         private List<IUpdateListener> _updateListeners;
 
+        [Inject]
+        private void Construct(List<IGameListener> gameListeners, List<IUpdateListener> updateListeners)
+        {
+            _gameListeners = gameListeners;
+            _updateListeners = updateListeners;
+        }
+        
         [BoxGroup("Game Cycle")]
         [Button("Start Game")]
         private void StartGame()
@@ -22,7 +30,8 @@ namespace SaveVillage
                     gameStartListener.OnStartGame();
             }
         }
-
+        
+        [BoxGroup("Game Cycle")]
         [Button("Pause Game")]
         private void PauseGame()
         {
@@ -64,10 +73,11 @@ namespace SaveVillage
 
         private void Update()
         {
+            var deltaTime = Time.deltaTime;
             if (_updateListeners == null) return;
             foreach (var updateable in _updateListeners)
             {
-                updateable?.OnUpdateGame();
+                updateable?.OnUpdateGame(deltaTime);
             }
         }
 

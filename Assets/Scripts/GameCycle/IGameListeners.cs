@@ -27,6 +27,6 @@ namespace SaveVillage
 
     public interface IUpdateListener : IGameListener
     {
-        public void OnUpdateGame();
+        public void OnUpdateGame(float deltaTime);
     }
 }
