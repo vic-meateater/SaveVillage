@@ -8,6 +8,8 @@ namespace SaveVillage
     {
         [SerializeField] GameConfig _gameConfig;
         [SerializeField] GameView _gameView;
+
+        private IGameViewModel _gameViewModel;
         
         private GameModelFactory _gameModelFactory;
 
@@ -20,10 +22,8 @@ namespace SaveVillage
         [Button]
         private void ShowView()
         {
-            var model = _gameModelFactory.Create(_gameConfig);
-            _gameView.Construct(model);
+            _gameViewModel = _gameModelFactory.Create(_gameConfig);
+            _gameView.Init(_gameViewModel);
         }
-        
-        
     }
 }

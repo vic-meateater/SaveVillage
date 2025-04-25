@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 26863515}
   - component: {fileID: 26863516}
+  - component: {fileID: 26863517}
   m_Layer: 0
   m_Name: '[UI]'
   m_TagString: Untagged
@@ -167,6 +168,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _workersCountDown: {fileID: 0}
   _buyWorkersButton: {fileID: 0}
+  _workersCountDownText: {fileID: 2047608928}
+  _workersView: {fileID: 26863517}
+--- !u!114 &26863517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26863514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93543c109a1a46f7876e1ebda709ba6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _workersCountDownText: {fileID: 2047608928}
 --- !u!1 &176848593
 GameObject:

@@ -4,13 +4,16 @@ namespace SaveVillage
 {
     public sealed class GameViewModel: IGameViewModel
     {
-        public ReadOnlyReactiveProperty<float> WorkersCountDown { get; }
-    
-        
+        public ReadOnlyReactiveProperty<float> WorkersCountDown => _workersCountDown;
+        public IWorkersViewModel WorkersViewModel => _workersViewModel;
         private readonly ReactiveProperty<float> _workersCountDown;
-        public GameViewModel(GameConfig gameConfig)
+        
+        private readonly IWorkersViewModel _workersViewModel;
+        
+        public GameViewModel(GameConfig gameConfig, IWorkersViewModel workersViewModel)
         {
-            WorkersCountDown = new ReactiveProperty<float>(gameConfig.WorkersCountDown);
+            _workersViewModel = workersViewModel;
+            _workersCountDown = new ReactiveProperty<float>(gameConfig.WorkersCountDown);
         }
 
     }
